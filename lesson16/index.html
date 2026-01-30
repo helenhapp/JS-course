@@ -141,7 +141,65 @@ console.log();</code></pre>
         <!-- Завдання -->
         <div class="accordion__item task">
           <div class="accordion__header">
-            <div><span class="star">✦</span> Завдання -> 70 балів</div>
+            <div>
+              <span class="star">✦</span> Завдання ->
+              <span class="accent">70 балів</span>
+            </div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h4>Завдання:</h4>
+            <p>Реалізувати клас <span>Product</span>.</p>
+            <ol>
+              <li>
+                Властивості (через конструктор):
+                <ul>
+                  <li>
+                    <span>name</span>, <span>price</span>,
+                    <span>caloriesPer100g</span>, <span>weight</span>.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Методи:
+                <ul>
+                  <li>
+                    <span>info()</span>: виводить у консоль рядок "Це продукт:
+                    [name]".
+                  </li>
+                  <li>
+                    <span>showPrice()</span>: виводить "Ціна продукту "[name]":
+                    [price] грн.".
+                  </li>
+                  <li>
+                    <span>showCalories()</span>: обчислює калорії для поточної
+                    ваги (caloriesPer100g / 100 * weight) і виводить:
+                    "Калорійність "[name]" на [weight] грам: [результат] ккал".
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Перевірка:
+                <ul>
+                  <li>
+                    Створити екземпляр <span>carrot</span> ("Морква", 18, 41,
+                    200).
+                  </li>
+                  <li>Викликати всі три методи.</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Очікуваний результат (вивід у консолі):</h4>
+            <img src="./images/res_04.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <!-- Завдання (детально) -->
+        <div class="accordion__item task">
+          <div class="accordion__header">
+            <div><span class="star">☾</span> Детальніший опис завдання</div>
             <span class="acc-arrow">▶</span>
           </div>
 
@@ -213,6 +271,7 @@ console.log();</code></pre>
           </div>
         </div>
 
+        <br />
         <br />
 
         <!-- ЧАСТИНА 2 -->
@@ -301,7 +360,72 @@ console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</co
         <!-- Завдання -->
         <div class="accordion__item task">
           <div class="accordion__header">
-            <div><span class="star">✦</span> Завдання -> 85 балів</div>
+            <div>
+              <span class="star">✦</span> Завдання ->
+              <span class="accent">85 балів</span>
+            </div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h4>Завдання:</h4>
+            <p>Розширити функціонал через наслідування.</p>
+            <ol>
+              <li>
+                Клас <span>Fruit</span> (наслідує Product):
+                <ul>
+                  <li>
+                    Конструктор: 4 базові параметри +
+                    <span>vitaminCContent</span>.
+                  </li>
+                  <li>
+                    Реалізація: викликати <span>super(...)</span>, зберегти
+                    <span>vitaminCContent</span>, встановити
+                    <span>this.type = "Фрукт"</span>.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Клас <span>DairyProduct</span> (наслідує Product):
+                <ul>
+                  <li>
+                    Конструктор: 4 базові параметри + <span>fatContent</span>.
+                  </li>
+                  <li>
+                    Реалізація: викликати <span>super(...)</span>, зберегти
+                    <span>fatContent</span>, встановити
+                    <span>this.type = "Молочний продукт"</span>.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Перевірка:
+                <ul>
+                  <li>
+                    Створити об'єкт <span>apple</span> (new Fruit): "Яблуко",
+                    25, 52, 150, вітамін 12.
+                  </li>
+                  <li>
+                    Викликати apple.info(), вивести у консоль type та вітамін C.
+                  </li>
+                  <li>
+                    Створити <span>milk</span>: "Молоко", 30, 60, 250, жирність
+                    3.2.
+                  </li>
+                  <li>Викликати milk.info(), вивести type та жирність.</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Очікуваний результат:</h4>
+            <img src="./images/res_05.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <!-- Завдання (детально) -->
+        <div class="accordion__item task">
+          <div class="accordion__header">
+            <div><span class="star">☾</span> Детальніший опис завдання</div>
             <span class="acc-arrow">▶</span>
           </div>
 
@@ -400,6 +524,7 @@ console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</co
         </div>
 
         <br />
+        <br />
 
         <!-- ЧАСТИНА 3 -->
 
@@ -497,12 +622,67 @@ displayTeamInfo(myTeam);</code></pre>
         <!-- Завдання -->
         <div class="accordion__item task">
           <div class="accordion__header">
-            <div><span class="star">✦</span> Завдання -> 100 балів</div>
+            <div>
+              <span class="star">✦</span> Завдання ->
+              <span class="accent">100 балів</span>
+            </div>
             <span class="acc-arrow">▶</span>
           </div>
 
           <div class="accordion__content">
-            <p>Завдання:</p>
+            <h4>Завдання:</h4>
+            <p>Реалізувати логіку обробки масиву товарів.</p>
+            <ol>
+              <li>
+                Функція <span>displayProductsInfo(products)</span>:
+                <ul>
+                  <li>Виводить заголовок "Вміст кошика:".</li>
+                  <li>Перебирає масив циклом <span>for...of</span>.</li>
+                </ul>
+              </li>
+              <li>
+                Логіка всередині циклу:
+                <ul>
+                  <li>
+                    Формує змінну <span>result</span> із базовими даними (назва, ціна, вага,
+                    калорії).
+                  </li>
+                  <li>
+                    Перевірка типу (<span>if/else</span>):
+                    <ul>
+                      <li>Якщо "Фрукт" — дописати вітамін С.</li>
+                      <li>Якщо "Молочний продукт" — дописати жирність.</li>
+                      <li>Інакше — дописати крапку.</li>
+                    </ul>
+                  </li>
+                  <li>Виводить <span>result</span> у консоль.</li>
+                </ul>
+              </li>
+              <li>
+                Перевірка:
+                <ul>
+                  <li>
+                    Створити масив <span>myProducts</span> з об'єктами carrot, apple, milk.
+                  </li>
+                  <li>Викликати функцію, передавши їй цей масив.</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Очікуваний результат:</h4>
+            <img src="./images/res_06.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <!-- Завдання (детально) -->
+        <div class="accordion__item task">
+          <div class="accordion__header">
+            <div><span class="star">☾</span> Детальніший опис завдання</div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h4>Завдання:</h4>
             <ol>
               <li>
                 Створити функцію <span>displayProductsInfo</span>, яка приймає
@@ -556,7 +736,7 @@ displayTeamInfo(myTeam);</code></pre>
               </li>
             </ol>
 
-            <p>Очікуваний результат:</p>
+            <h4>Очікуваний результат:</h4>
             <img src="./images/res_06.jpg" alt="результат коду" />
           </div>
         </div>
