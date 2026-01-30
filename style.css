@@ -39,7 +39,7 @@ body {
   color: var(--text-main);
   font-family: Arial, sans-serif;
   padding-bottom: 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 header {
@@ -211,7 +211,7 @@ code {
   font-family: "Fira Code", monospace;
   color: var(--text-main);
   white-space: pre-wrap;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* ===========================
