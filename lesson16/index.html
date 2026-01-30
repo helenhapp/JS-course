@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Залікова робота 3</title>
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Залік 3</h1>
+      <p class="topic">Об'єктно орієнтоване програмування</p>
+    </header>
+
+    <main>
+      <hr />
+
+      <section class="accordion">
+        <!-- ЧАСТИНА 1 -->
+
+        <!-- Теорія -->
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <div>
+              <span class="star">✧</span> Частина 1:
+              <span class="accent">Основи</span>
+            </div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h3>Що таке класи в JavaScript</h3>
+            <p>
+              <b>Клас</b> — це шаблон, за яким ми створюємо схожі об'єкти,
+              замість того, щоб налаштовувати кожен об'єкт окремо.
+            </p>
+            <pre><code class="language-javascript">class НазваКласу {
+  // Тут буде опис властивостей та методів
+}</code></pre>
+
+            <h3>constructor() {}</h3>
+            <p>
+              <b>constructor</b> — це спеціальний метод для налаштування
+              об'єкта. Ключове слово <span>this</span> означає "цей конкретний
+              об'єкт".
+            </p>
+            <pre><code class="language-javascript">class НазваКласу {
+  constructor(параметр1, параметр2) {
+    this.властивість1 = параметр1; // Зберігаємо дані
+    this.властивість2 = параметр2;
+  }
+}</code></pre>
+
+            <h3>Методи</h3>
+            <p>
+              Це функції всередині класу. Вони визначають, що об'єкт
+              <span>вміє робити</span>.
+            </p>
+            <pre><code class="language-javascript">class НазваКласу {
+  constructor(параметр1, параметр2) {
+    this.властивість1 = параметр1; 
+    this.властивість2 = параметр2;
+  }
+
+  назваМетоду1() {
+    // Дія, яку виконує об'єкт
+    console.log(`Привіт, я маю властивості ${this.властивість1} та ${this.властивість2}!`);
+  }
+
+  назваМетоду2() {
+    // Ще одна дія, яку вміє виконувати об'єкт...
+  }
+}</code></pre>
+
+            <h3>new (створення об'єктів)</h3>
+            <p>
+              Команда <span>new</span> бере наш "шаблон" (клас) і створює
+              реальний об'єкт у пам'яті комп'ютера. Цей об'єкт має доступ до
+              всіх методів класу.
+            </p>
+            <pre><code class="language-javascript">// Створення об'єкта на основі класу
+const мійОбєкт = new НазваКласу("Дані", 100);
+мійОбєкт.назваМетоду1() // викликаємо перший метод</code></pre>
+
+            <hr />
+
+            <h3>Приклад</h3>
+            <p>
+              Базовий клас для створення героя гри, який вміє говорити своє ім'я
+              (метод <span>info()</span>) та бити ворога
+              (<span>calculateTotalDamage()</span>).
+            </p>
+            <pre><code class="language-javascript">// --- Частина 1: Основи (Герой) ---
+
+class Hero {
+  constructor(name, level, damagePerHit, hitsCount) {
+    this.name = name; // Ім'я
+    this.level = level; // Рівень
+    this.damagePerHit = damagePerHit; // Шкода за один удар
+    this.hitsCount = hitsCount; // Кількість ударів у комбо
+  }
+
+  info() {
+    console.log(`Це герой: ${this.name}.`);
+  }
+
+  calculateTotalDamage() {
+    // Рахуємо загальну шкоду: сила удару x кількість ударів
+    let totalDamage = this.damagePerHit * this.hitsCount;
+    console.log(
+      `Загальна атака ${this.name} за ${this.hitsCount} ударів: ${totalDamage} одиниць.`,
+    );
+  }
+}
+
+const basicHero = new Hero("Новачок", 1, 10, 3);
+basicHero.info();
+basicHero.calculateTotalDamage();
+console.log();</code></pre>
+            <p>Результат:</p>
+            <img src="./images/res_01.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <!-- Завдання -->
+        <div class="accordion__item task">
+          <div class="accordion__header">
+            <div><span class="star">✦</span> Завдання -> 70 балів</div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h4>Завдання:</h4>
+            <ol>
+              <li>Створити клас з назвою <span>Product</span>.</li>
+              <li>
+                У класі створити <span>constructor</span>, який приймає 4
+                параметри:
+                <ul>
+                  <li><span>name</span> (назва продукту)</li>
+                  <li><span>price</span> (ціна)</li>
+                  <li><span>caloriesPer100g</span> (калорійність на 100 г)</li>
+                  <li><span>weight</span> (вага цього шматка в грамах)</li>
+                </ul>
+              </li>
+              <li>
+                Додати метод <span>info()</span>, який виводить у консоль фразу:
+                <br /><i>Це продукт: [назва]</i>.
+              </li>
+              <li>
+                Додати метод <span>showPrice()</span>, який виводить у консоль:
+                <br />
+                <i> Ціна продукту "[назва]": [ціна] грн. </i>
+              </li>
+              <li>
+                Додати метод <span>showCalories()</span>, який має:
+                <ul>
+                  <li>
+                    Порахувати загальні калорії за формулою:
+                    <br />
+                    <i>this.caloriesPer100g / 100 * this.weight</i>
+                    <br />
+                    (результат обчислень зберегти у змінній <span>result</span>)
+                  </li>
+                  <li>
+                    Вивести у консоль:
+                    <br />
+                    <i
+                      >Калорійність "[назва]" на [вага] грам: [результат]
+                      ккал</i
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Створити змінну <span>carrot</span> та записати в неї новий
+                (<span>new</span>) об'єкт класу <span>Product</span> із такими
+                даними:
+                <ul>
+                  <li><i>"Морква"</i> (назва)</li>
+                  <li><i>18</i> (ціна)</li>
+                  <li><i>41</i> (калорійність)</li>
+                  <li><i>200</i> (вага)</li>
+                </ul>
+              </li>
+              <li>
+                Викликати для моркви всі три методи (<span>info</span>,
+                <span>showPrice</span>, <span>showCalories</span>), щоб
+                перевірити роботу коду.
+              </li>
+            </ol>
+
+            <h4>Очікуваний результат (вивід у консолі):</h4>
+            <img src="./images/res_04.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <br />
+
+        <!-- ЧАСТИНА 2 -->
+
+        <!-- Теорія -->
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <div>
+              <span class="star">✧</span> Частина 2:
+              <span class="accent">Наслідування</span>
+            </div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h3>Наслідування (Inheritance)</h3>
+            <p>
+              Це спосіб створити новий клас на основі вже існуючого. Новий клас
+              (дочірній) автоматично отримує всі "вміння" (методи) та
+              властивості батьківського класу. Це дозволяє не писати один і той
+              самий код двічі.
+            </p>
+
+            <h3>extends</h3>
+            <p>
+              Ключове слово, яке створює зв'язок між класами. Воно означає
+              "розширює". Ми кажемо програмі: "Створи цей новий клас як
+              розширену версію старого".
+            </p>
+            <pre><code class="language-javascript">class Собака extends Тварина {
+  // Собака отримує все, що має Тварина + свої особливості
+}</code></pre>
+
+            <h3>super()</h3>
+            <p>
+              Це "дзвінок батькам". У конструкторі дочірнього класу ми
+              обов'язково викликаємо <span>super()</span>, щоб передати загальні
+              дані (наприклад, ім'я) батьківському класу для збереження.
+            </p>
+            <pre><code class="language-javascript">constructor(name, speed) {
+  super(name);       // Віддаємо ім'я батьківському класу
+  this.speed = speed; // Швидкість зберігаємо тут
+}</code></pre>
+
+            <hr />
+
+            <h3>Приклад</h3>
+            <p>
+              Два класи — Воїн (<span>Warrior</span>) та Маг (<span>Mage</span>)
+              — які наслідують клас <span>Hero</span>. Воїн носить важкі
+              обладунки (<span>armor</span>), а Маг має магічну енергію
+              (<span>mana</span>).
+            </p>
+            <pre><code class="language-javascript">// ... (код з Частини 1: клас Hero)
+
+// --- Частина 2: Класи персонажів (Воїн та Маг) ---
+
+class Warrior extends Hero {
+  constructor(name, level, damagePerHit, hitsCount, armor) {
+    super(name, level, damagePerHit, hitsCount); // Передаємо дані "батьку"
+    this.armor = armor; // Унікальна властивість: Броня
+    this.type = "Воїн";
+  }
+}
+
+class Mage extends Hero {
+  constructor(name, level, damagePerHit, hitsCount, mana) {
+    super(name, level, damagePerHit, hitsCount);
+    this.mana = mana; // Унікальна властивість: Мана
+    this.type = "Маг";
+  }
+}
+
+const aragorn = new Warrior("Арагорн", 50, 45, 4, 150);
+aragorn.info(); // Має доступ до методів з батьківського класу
+console.log(`Клас: ${aragorn.type}, Броня: ${aragorn.armor} од.\n`);
+
+const gandalf = new Mage("Гендальф", 100, 80, 2, 500);
+gandalf.info();
+console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</code></pre>
+            <p>Результат:</p>
+            <img src="./images/res_02.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <!-- Завдання -->
+        <div class="accordion__item task">
+          <div class="accordion__header">
+            <div><span class="star">✦</span> Завдання -> 85 балів</div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h4>Завдання:</h4>
+            <ol>
+              <li>
+                Створити клас <span>Fruit</span>, який наслідує клас
+                <span>Product</span> (використати ключове слово
+                <span>extends</span>).
+              </li>
+              <li>
+                У класі <span>Fruit</span> створити <span>constructor</span>,
+                який приймає <span>5</span> параметрів:
+                <ul>
+                  <li>
+                    <span>4</span> стандартні (name, price, caloriesPer100g,
+                    weight).
+                  </li>
+                  <li>
+                    <span>1</span> новий: <span>vitaminCContent</span> (вміст
+                    вітаміну С).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Всередині конструктора <span>Fruit</span>:
+                <ul>
+                  <li>
+                    Викликати <span>super(...)</span> і передати йому 4
+                    стандартні параметри.
+                  </li>
+                  <li>
+                    Зберегти новий параметр у властивість
+                    <span>this.vitaminCContent</span>.
+                  </li>
+                  <li>
+                    Створити властивість <span>this.type</span> і записати в неї
+                    текст <i>"Фрукт"</i>.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Створити клас <span>DairyProduct</span>, який теж наслідує клас
+                <span>Product</span>.
+              </li>
+              <li>
+                У конструкторі <span>DairyProduct</span> додати новий параметр
+                <span>fatContent</span> (жирність), викликати
+                <span>super</span> та записати:
+                <ul>
+                  <li>Жирність у властивість <span>this.fatContent</span>.</li>
+                  <li>
+                    У властивість <span>this.type</span> записати текст
+                    <i>"Молочний продукт"</i>.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Створити змінну <span>apple</span> через
+                <span>new Fruit</span> із даними:
+                <ul>
+                  <li><i>"Яблуко"</i> (назва)</li>
+                  <li><i>25</i> (ціна)</li>
+                  <li><i>52</i> (калорії)</li>
+                  <li><i>150</i> (вага)</li>
+                  <li><i>12</i> (вітамін С)</li>
+                </ul>
+              </li>
+              <li>
+                Викликати <span>apple.info()</span> та окремим
+                <span>console.log</span> вивести його <i>тип (apple.type)</i> та
+                <i>вміст вітаміну C</i>.
+              </li>
+              <li>
+                Створити змінну <span>milk</span> через
+                <span>new DairyProduct</span> із даними:
+                <ul>
+                  <li><i>"Молоко"</i> (назва)</li>
+                  <li><i>30</i> (ціна)</li>
+                  <li><i>60</i> (калорії)</li>
+                  <li><i>250</i> (вага)</li>
+                  <li><i>3.2</i> (жирність)</li>
+                </ul>
+              </li>
+              <li>
+                Викликати <span>milk.info()</span> та окремим
+                <span>console.log</span> вивести його <i>тип</i> та
+                <i>жирність</i>.
+              </li>
+            </ol>
+
+            <h4>Очікуваний результат:</h4>
+            <img src="./images/res_05.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <br />
+
+        <!-- ЧАСТИНА 3 -->
+
+        <!-- Теорія -->
+        <div class="accordion__item">
+          <div class="accordion__header">
+            <div>
+              <span class="star">✧</span> Частина 3:
+              <span class="accent">Логіка та масиви</span>
+            </div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <h3>if / else if / else</h3>
+            <p>
+              Це спосіб навчити програму приймати рішення. "Якщо (if) умова
+              правдива — роби це, інакше (else) — роби інше".
+            </p>
+            <pre><code class="language-javascript">if (герой === "Маг") {
+  // Код для мага
+} else {
+  // Код для всіх інших
+}</code></pre>
+
+            <h3>Функції</h3>
+            <p>
+              Це блок коду, який можна використовувати багато разів. Функція
+              може приймати дані (параметри), щось з ними робити та видавати
+              результат.
+            </p>
+            <pre><code class="language-javascript">function привітання(ім'я) {
+  console.log(`Привіт, ${ім'я}!`);
+}</code></pre>
+
+            <h3>Масиви</h3>
+            <p>
+              Це спеціальний тип даних, схожий на <span>список</span> або
+              коробку, де ми можемо зберігати багато речей під однією назвою.
+              Масиви створюються через квадратні дужки <span>[]</span>.
+            </p>
+            <pre><code class="language-javascript">let герої = [герой1, герой2, герой3];</code></pre>
+
+            <h3>Ітерація по масиву (for ... of)</h3>
+            <p>
+              Щоб обробити кожен елемент у списку по черзі, ми використовуємо
+              цикл. Конструкція <span>for (let герой of герої)</span> читається
+              як: "Для кожного героя зі списку героїв зроби наступне...".
+            </p>
+            <pre><code class="language-javascript">for (let герой of герої) {
+  // Цей код виконається для кожного героя окремо
+  герой.info();
+}</code></pre>
+
+            <hr />
+
+            <h3>Приклад</h3>
+            <p>
+              Функція, яка приймає як параметр масив з різними героями, і
+              виводить у консоль інформацію про кожного з них, перевіряючи їхній
+              тип.
+            </p>
+            <pre><code class="language-javascript">// ... (код з Частини 1 та 2)
+
+// --- Частина 3: Команда та Логіка ---
+
+function displayTeamInfo(heroes) {
+  console.log("Склад команди:");
+
+  // ітерація по масиву:
+  for (let hero of heroes) {
+    // Базовий рядок
+    let result = `- ${hero.name}: рівень ${hero.level}, комбо з ${hero.hitsCount} ударів, атака ${hero.damagePerHit}`;
+
+    // Логіка для різних класів
+    if (hero.type === "Воїн") {
+      result += `, має міцну броню: ${hero.armor} од.`;
+    } else if (hero.type === "Маг") {
+      result += `, володіє магією: ${hero.mana} мани.`;
+    } else {
+      result += ".";
+    }
+
+    console.log(result);
+  }
+}
+
+let myTeam = [basicHero, aragorn, gandalf]; // масив зі всіма героями
+displayTeamInfo(myTeam);</code></pre>
+            <p>Результат:</p>
+            <img src="./images/res_03.jpg" alt="результат коду" />
+          </div>
+        </div>
+
+        <!-- Завдання -->
+        <div class="accordion__item task">
+          <div class="accordion__header">
+            <div><span class="star">✦</span> Завдання -> 100 балів</div>
+            <span class="acc-arrow">▶</span>
+          </div>
+
+          <div class="accordion__content">
+            <p>Завдання:</p>
+            <ol>
+              <li>
+                Створити функцію <span>displayProductsInfo</span>, яка приймає
+                один параметр — масив <span>products</span>.
+              </li>
+              <li>
+                Всередині функції спершу вивести в консоль заголовок:
+                <br />
+                <i> "Вміст кошика:" </i>.
+              </li>
+              <li>
+                Створити цикл <span>for...of</span>, щоб пройтися по кожному
+                <span>product</span> (продукту) із переданого масиву
+                <span>products</span>.
+              </li>
+              <li>
+                Всередині циклу створити змінну <span>result</span> і записати в
+                неї базовий рядок із загальною інформацією (яка є у всіх):
+                <br />
+                <i>
+                  [назва]: ціна [ціна] грн, вага [вага] г, калорійність
+                  [калорійність] на 100 г.
+                </i>
+              </li>
+              <li>
+                Додати перевірку типу продукту (<span>if / else if / else</span
+                >), щоб дописати унікальні дані до рядка <span>result</span>:
+                <ul>
+                  <li>
+                    Якщо тип продукту <i>"Фрукт"</i> — дописати вміст вітаміну С
+                    <br />(result += `...`).
+                  </li>
+                  <li>
+                    Інакше, якщо тип продукту <i>"Молочний продукт"</i> —
+                    дописати відсоток жирності.
+                  </li>
+                  <li>
+                    Інакше (для решти продуктів) — просто дописати крапку
+                    <i>"."</i>.
+                  </li>
+                </ul>
+              </li>
+              <li>Вивести фінальний рядок result у консоль.</li>
+              <li>
+                Поза функцією створити масив <span>myProducts</span> і покласти
+                в нього всі три наші об'єкти (carrot, apple, milk).
+              </li>
+              <li>
+                Викликати функцію <span>displayProductsInfo</span> і передати їй
+                цей масив.
+              </li>
+            </ol>
+
+            <p>Очікуваний результат:</p>
+            <img src="./images/res_06.jpg" alt="результат коду" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

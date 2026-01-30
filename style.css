@@ -1,0 +1,331 @@
+/* ===========================
+   THEME VARIABLES
+=========================== */
+:root {
+  /* Backgrounds */
+  --bg: #0a1030;
+  --panel: #0d1440;
+  --panel-alt: #102159;
+  --hover-bg: #16327b;
+  --code-bg: #0e1a4d;
+
+  /* Text */
+  --text-main: #d6ecff;
+  --text-soft: #a9dcff;
+  --title: #78c7ff;
+
+  /* Borders & accents */
+  --accent: #4fa7ff;
+  /* --accent-pop: #ff6ec7; */
+  /* --accent-pop: #ffcc00; */
+  --accent-pop: #e5c544;
+  /* --accent-pop: #00f0b5; */
+
+  /* Effects */
+  --shadow-accent: rgba(79, 167, 255, 0.25);
+  --title-glow: rgba(120, 199, 255, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===========================
+   BASE
+=========================== */
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: Arial, sans-serif;
+  padding-bottom: 10px;
+  font-size: 15px;
+}
+
+header {
+  text-align: center;
+  font-family: "Press Start 2P";
+  padding: 10px;
+}
+
+header h2 {
+  color: var(--text-main);
+}
+
+header .links {
+  width: 90%;
+  max-width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto 0;
+}
+
+header .links a {
+  display: inline-block;
+  font-size: 10px;
+  min-width: 100px;
+  text-align: center;
+  opacity: 0.75;
+}
+
+p.topic {
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 20px 0;
+  color: var(--title);
+  text-shadow: 0 0 8px var(--title-glow);
+  line-height: 1.5;
+  letter-spacing: 3px;
+}
+
+h2,
+h3 {
+  font-family: "Press Start 2P";
+  color: var(--accent);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4 {
+  margin: 1.1rem 0;
+}
+
+p,
+li {
+  text-align: justify;
+}
+
+b {
+  color: var(--accent-pop);
+  letter-spacing: 1px;
+}
+
+i {
+  background-color: var(--panel-alt);
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+/* ===========================
+   UTILS
+=========================== */
+.accent {
+  color: var(--accent-pop);
+}
+
+/* ===========================
+   ACCORDION
+=========================== */
+.accordion {
+  margin: 18px auto;
+}
+
+.accordion__item {
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  background: var(--panel);
+  box-shadow: 0 0 10px var(--shadow-accent);
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+
+.accordion__header {
+  padding: 18px;
+  background: var(--panel-alt);
+  color: var(--text-soft);
+  font-family: "Press Start 2P";
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.accordion__header:hover {
+  background: var(--hover-bg);
+}
+
+.accordion__header .star {
+  font-size: 18px;
+  transform: translateY(-2px);
+}
+
+.acc-arrow {
+  transition: transform 0.3s ease;
+}
+
+.accordion__item.active .acc-arrow {
+  transform: rotate(90deg);
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 18px;
+  line-height: 1.6;
+  transition:
+    max-height 0.35s ease,
+    padding 0.3s ease;
+}
+
+.accordion__item.active .accordion__content {
+  padding: 18px;
+}
+
+/* ===========================
+   CODE BLOCK
+=========================== */
+pre {
+  margin: 0;
+}
+
+code {
+  display: block;
+  padding: 16px;
+  margin: 10px 0;
+  background: var(--code-bg);
+  border: 3px solid var(--accent);
+  border-radius: 6px;
+  font-family: "Fira Code", monospace;
+  color: var(--text-main);
+  white-space: pre-wrap;
+  font-size: 12px;
+}
+
+/* ===========================
+   DIVIDERS
+=========================== */
+hr {
+  border: none;
+  border-top: 2px solid var(--accent);
+  margin: 30px auto;
+}
+
+.accordion__content hr {
+  width: 90%;
+}
+
+/* ===========================
+   LISTS
+=========================== */
+ul,
+ol {
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+ol span,
+.accordion__content p span,
+.accordion__content li span {
+  color: var(--accent-pop);
+  /* font-weight: bold; */
+  letter-spacing: 1px;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+li.test {
+  list-style-type: none;
+  margin-left: -1.5rem;
+}
+
+.lesson-links {
+  list-style-type: square;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.lesson-links li::marker {
+  color: var(--text-main);
+}
+
+.flex-ol {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+button {
+  background-color: var(--panel-alt);
+  color: var(--text-main);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-family: "Press Start 2P";
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-soft);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* ===========================
+   LINKS & IMAGES
+=========================== */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--title);
+  text-decoration: underline;
+}
+
+a:hover img {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+img {
+  width: 100%;
+  border: 3px solid var(--panel-alt);
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 600px) {
+  p,
+  li {
+    text-align: left;
+  }
+}
