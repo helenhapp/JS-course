@@ -175,9 +175,9 @@ console.log();</code></pre>
             <ol>
               <li>
                 Додати метод <span>info()</span>, який виводить у консоль фразу:
-                <br /><i>Це продукт: [назва]</i>, <br />замінивши слова в
-                <span>[]</span> на значення властивостей класу (наприклад, на
-                this.name)
+                <br /><i>Це продукт: [назва]</i>, замінивши слова в
+                <span>[]</span> на значення властивостей класу (наприклад,
+                <span>this.name</span>)
               </li>
               <li>
                 Додати метод <span>showPrice()</span>, який виводить у консоль:
@@ -196,9 +196,7 @@ console.log();</code></pre>
                   <li>
                     Порахувати загальні калорії за формулою:
                     <br />
-                    <i>this.caloriesPer100g / 100 * this.weight</i>
-                    <br />
-                    (результат обчислень зберегти у змінній <span>result</span>)
+                    <i>(caloriesPer100g / 100) * weight</i>
                   </li>
                   <li>
                     Вивести у консоль:
@@ -219,13 +217,7 @@ console.log();</code></pre>
               <li>
                 Створити змінну <span>carrot</span> та записати в неї новий
                 (<span>new</span>) об'єкт класу <span>Product</span> із такими
-                даними:
-                <ul>
-                  <li><i>"Морква"</i> (назва)</li>
-                  <li><i>18</i> (ціна)</li>
-                  <li><i>41</i> (калорійність)</li>
-                  <li><i>200</i> (вага)</li>
-                </ul>
+                даними: <i>"Морква"</i>, <i>18</i>, <i>41</i>, <i>200</i>.
               </li>
               <li>
                 Викликати для моркви всі три методи (<span>info</span>,
@@ -340,17 +332,16 @@ console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</co
             <h4>Частина 2.1 (<i>+ 8 балів</i>):</h4>
             <ol>
               <li>
-                Створити клас <span>Fruit</span>, який наслідує клас
-                <span>Product</span> (використати ключове слово
-                <span>extends</span>).
+                Створити клас <span>Fruit</span>, який наслідує
+                (<span>extends</span>) клас <span>Product</span>.
               </li>
               <li>
                 У класі <span>Fruit</span> створити <span>constructor</span>,
                 який приймає <span>5</span> параметрів:
                 <ul>
                   <li>
-                    <span>4</span> стандартні (name, price, caloriesPer100g,
-                    weight).
+                    <span>4</span> стандартні:
+                    <span> name, price, caloriesPer100g, weight </span>.
                   </li>
                   <li>
                     <span>1</span> новий: <span>vitaminCContent</span> (вміст
@@ -365,13 +356,10 @@ console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</co
                     Викликати <span>super(...)</span> і передати йому 4
                     стандартні параметри.
                   </li>
+                  <li>Зберегти новий параметр <span>vitaminCContent</span>.</li>
                   <li>
-                    Зберегти новий параметр у властивість
-                    <span>this.vitaminCContent</span>.
-                  </li>
-                  <li>
-                    Створити властивість <span>this.type</span> і записати в неї
-                    текст <i>"Фрукт"</i>.
+                    Створити властивість <span>this.type</span> зі значенням
+                    <i>"Фрукт"</i>.
                   </li>
                 </ul>
               </li>
@@ -379,45 +367,30 @@ console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</co
 
             <hr />
 
-            <h4>Частина 2.2 (<i>+ 8 балів</i>):</h4>
-            <ol>
-              <li>
-                Створити клас <span>DairyProduct</span>, який теж наслідує клас
-                <span>Product</span>.
-              </li>
-              <li>
-                У конструкторі <span>DairyProduct</span> додати новий параметр
-                <span>fatContent</span> (жирність), викликати
-                <span>super</span> та записати:
-                <ul>
-                  <li>Жирність у властивість <span>this.fatContent</span>.</li>
-                  <li>
-                    У властивість <span>this.type</span> записати текст
-                    <i>"Молочний продукт"</i>.
-                  </li>
-                </ul>
-              </li>
-            </ol>
-
-            <hr />
-
-            <h4>Частина 2.3 (<i>+ 5 балів</i>):</h4>
+            <h4>Частина 2.2 (<i>+ 5 балів</i>):</h4>
             <ol>
               <li>
                 Створити змінну <span>apple</span> через
-                <span>new Fruit</span> із даними:
-                <ul>
-                  <li><i>"Яблуко"</i> (назва)</li>
-                  <li><i>25</i> (ціна)</li>
-                  <li><i>52</i> (калорії)</li>
-                  <li><i>150</i> (вага)</li>
-                  <li><i>12</i> (вітамін С)</li>
-                </ul>
+                <span>new Fruit</span> із даними: <i>"Яблуко"</i>, <i>25</i>,
+                <i>52</i>, <i>150</i>, <i>12</i>.
               </li>
               <li>
                 Викликати <span>apple.info()</span> та окремим
-                <span>console.log</span> вивести його <i>тип (apple.type)</i> та
-                <i>вміст вітаміну C</i>.
+                <span>console.log</span> вивести його
+                <i>тип</i> (<span>apple.type</span>) та <i>вміст вітаміну C</i>.
+              </li>
+            </ol>
+
+            <hr />
+
+            <h4>Частина 2.3 (<i>+ 8 балів</i>):</h4>
+            <ol>
+              <li>
+                Створити клас <span>DairyProduct</span>, який теж наслідує клас
+                <span>Product</span>, має <span>4</span> стандартні властивості,
+                <span>1</span> нову властивість
+                <span>this.fatContent</span> (відсоток жирності) та тип
+                <i>"Молочний продукт"</i>.
               </li>
             </ol>
 
@@ -427,14 +400,8 @@ console.log(`Клас: ${gandalf.type}, Мана: ${gandalf.mana} од.\n`);</co
             <ol>
               <li>
                 Створити змінну <span>milk</span> через
-                <span>new DairyProduct</span> із даними:
-                <ul>
-                  <li><i>"Молоко"</i> (назва)</li>
-                  <li><i>30</i> (ціна)</li>
-                  <li><i>60</i> (калорії)</li>
-                  <li><i>250</i> (вага)</li>
-                  <li><i>3.2</i> (жирність)</li>
-                </ul>
+                <span>new DairyProduct</span> із даними: <i>"Молоко"</i>,
+                <i>30</i>, <i>60</i>, <i>250</i>, <i>3.2</i>.
               </li>
               <li>
                 Викликати <span>milk.info()</span> та окремим
@@ -556,7 +523,7 @@ displayTeamInfo(myTeam);</code></pre>
 
             <hr />
 
-            <h4>Частина 3.1 (<i>+ 12 балів</i>):</h4>
+            <h4>Частина 3.1 (<i>+ 8 балів</i>):</h4>
             <ol>
               <li>
                 Створити функцію <span>displayProductsInfo</span>, яка приймає
@@ -616,12 +583,37 @@ displayTeamInfo(myTeam);</code></pre>
             <ol>
               <li>
                 Поза функцією створити масив <span>myProducts</span> і покласти
-                в нього всі три наші об'єкти (carrot, apple, milk).
+                в нього всі три наші об'єкти (<span>carrot</span>,
+                <span>apple</span>, <span>milk</span>).
               </li>
               <li>
                 Викликати функцію <span>displayProductsInfo</span> і передати їй
                 цей масив.
               </li>
+            </ol>
+
+            <hr />
+
+            <h4>Частина 3.3 (<i>+ 4 бали</i>):</h4>
+            <ol>
+              <li>
+                Створити <span>4</span> файли
+                <span>.js</span> (<span>Product.js</span>, <span>Fruit.js</span>,
+                <span>DairyProduct.js</span>,
+                <span>displayProductsInfo.js</span>) і перенести туди відповідні
+                частини коду.
+              </li>
+              <li>
+                Створити файл <span>index.html</span>. Підключити всі скрипти
+                через тег <span>&lt;script src="..."&gt;</span>
+              </li>
+              <li>
+                В кінці <span>body</span> відкрити окремий тег
+                <span>&lt;script&gt;</span>, перенести туди створення об'єктів
+                <span>carrot</span>, <span>apple</span>, <span>milk</span> та
+                виклик функцій.
+              </li>
+              <li>Перевірити результат коду в консолі в браузері.</li>
             </ol>
           </div>
         </div>
